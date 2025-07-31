@@ -95,7 +95,15 @@ sudo cp libUnitreeMotorSDK_arm64.so /usr/local/lib/ /usr/lib/
 ## Full steps of operating RoboTamerSdk4Qmini on the real Qmini robot
 #### Before start
 ```bash
+cd ~/RoboTamerSdk4Qmini
+mkdir -p build && cd build
+
+cmake -DPLATFORM=x86 .. && make && cd ../bin
+(add x86)
+
 cmake -DPLATFORM=arm64 .. && make && cd bin
+(arm)
+
 ```
 #### Step 1: Check the start-up posture of the robot
 #### Step 2: Boot up both the joy stick and the robot
