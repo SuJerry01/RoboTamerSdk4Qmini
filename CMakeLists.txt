@@ -120,10 +120,10 @@ if (NOT ONNXRT_LIB)
 endif()
 message(STATUS "Found ONNX Runtime library: ${ONNXRT_LIB}")
 
-
+## 链接时加入 ONNX Runtime
 target_link_libraries(run_interface ddsc unitree_sdk2 ddscxx rt pthread ${ONNXRT_LIB}  yaml-cpp Python3::Python JsonCpp::JsonCpp libUnitreeMotorSDK_Linux64.so)
 
-# —— 在这里加 rpath —— 
+# 设置 rpath，让运行时能找到上面找到的 libonnxruntime.so—— 在这里加 rpath —— 
 set_target_properties(run_interface PROPERTIES
   BUILD_RPATH "$ENV{CONDA_PREFIX}/lib/python3.11/site-packages/onnxruntime/capi"
 )
